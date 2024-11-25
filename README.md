@@ -21,7 +21,7 @@ MyStore is a responsive e-commerce web application that offers users a seamless 
 
 ## Demo
 
-[Visit the live demo](#)
+[Visit the live demo](https://gna-task-shivam.netlify.app/)
 
 ## Getting Started
 
