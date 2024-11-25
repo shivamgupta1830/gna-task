@@ -9,10 +9,10 @@ const Footer = () => {
         <div className="flex items-center gap-4 w-[85%] md:w-full">
           <RiPagesLine className="text-white text-6xl  md:text-7xl" />
           <div className="text-white flex flex-col gap-1 ">
-            <p className=" text-lg md:text-2xl  font-semibold">
+            <p className="text-sm sm:text-2xl  font-semibold">
               Your Shopping Journey Starts Here
             </p>
-            <p className="text-base">
+            <p className=" text-xs sm:text-base">
               Sign up and we will send you the best deals
             </p>
           </div>
