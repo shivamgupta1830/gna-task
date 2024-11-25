@@ -80,7 +80,7 @@ const ProductCard = ({ product }) => {
 
         <button
           onClick={handleAddToCart}
-          className="w-[80px] md:w-[160px] bg-blue-800 text-white px-2 md:px-4 py-3 rounded-sm hover:bg-blue-900 transition flex justify-center items-center gap-2"
+          className="w-[80px] sm:w-[110px] md:w-[160px] bg-blue-800 text-white px-2 md:px-4 py-3 rounded-sm hover:bg-blue-900 transition flex justify-center items-center gap-2"
         >
           <span className="text-xs md:text-base">Add to Cart</span>{" "}
           <MdAdd className="hidden sm:inline" />
