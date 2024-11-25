@@ -7,9 +7,9 @@ const Footer = () => {
       {/* Upper footer */}
       <div className="py-16 sm:px-12 md:px-16 lg:px-24 flex lg:flex-row flex-col justify-center items-center gap-4 lg:gap-8  lg:justify-between bg-blue-950 ">
         <div className="flex items-center gap-4">
-          <RiPagesLine className="text-white text-5xl md:text-7xl" />
+          <RiPagesLine className="text-white text-6xl  md:text-7xl" />
           <div className="text-white flex flex-col gap-1 w-full">
-            <p className="text-2xl  font-semibold">
+            <p className=" text-lg md:text-2xl  font-semibold">
               Your Shopping Journey Starts Here
             </p>
             <p className="text-base">
@@ -22,9 +22,9 @@ const Footer = () => {
           <input
             type="email"
             placeholder="Your Email"
-            className=" px-4 py-3 rounded-sm w-[70%] "
+            className=" px-4 py-3 rounded-sm w-[70%] text-base"
           />
-          <button className="bg-blue-700 hover:bg-blue-800 text-white rounded-sm px-4 py-3">
+          <button className="bg-blue-700 hover:bg-blue-800 text-base  text-white rounded-sm px-4 py-3">
             Subscribe
           </button>
         </div>
