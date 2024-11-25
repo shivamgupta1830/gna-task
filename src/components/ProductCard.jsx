@@ -57,30 +57,33 @@ const ProductCard = ({ product }) => {
       </div>
 
       <div className="flex flex-col justify-start items-start gap-5 w-[60%]">
-        <h6 className="font-medium text-sm text-gray-500 capitalize">
+        <h6 className="font-medium text-xs text-gray-500 capitalize">
           {product.category}
         </h6>
-        <h3 className="font-semibold text-base md:text-lg text-gray-700 text-start">
+        <h3 className="font-semibold text-sm md:text-lg text-gray-700 text-start">
           {product.title}
         </h3>
-        <p className="text-gray-900 text-center font-bold text:lg md:text-2xl">
+        <p className="text-gray-900 text-center font-bold text:sm md:text-2xl">
           ${product.price.toFixed(2)}
         </p>
       </div>
 
       <div className="w-[20%] h-full flex flex-col justify-between items-end">
         <div className="flex flex-col justify-between items-end">
-          <div className="flex mb-2">{renderStars(product.rating.rate)}</div>
-          <p className="text-sm text-gray-500 capitalize">
+          <div className="flex text-sm sm:text-base mb-2">
+            {renderStars(product.rating.rate)}
+          </div>
+          <p className=" text-xs sm:text-sm text-gray-500 capitalize">
             {product.rating.count} ratings
           </p>
         </div>
 
         <button
           onClick={handleAddToCart}
-          className="w-[130px] md:w-[160px] bg-blue-800 text-white px-2 md:px-4 py-3 rounded-sm hover:bg-blue-900 transition flex justify-center items-center gap-2"
+          className="w-[80px] md:w-[160px] bg-blue-800 text-white px-2 md:px-4 py-3 rounded-sm hover:bg-blue-900 transition flex justify-center items-center gap-2"
         >
-          <span className="text-sm md:text-base">Add to Cart</span> <MdAdd />
+          <span className="text-xs md:text-base">Add to Cart</span>{" "}
+          <MdAdd className="hidden sm:inline" />
         </button>
       </div>
     </div>
