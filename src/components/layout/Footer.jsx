@@ -6,9 +6,9 @@ const Footer = () => {
     <footer className="w-full">
       {/* Upper footer */}
       <div className="py-16 sm:px-12 md:px-16 lg:px-24 flex lg:flex-row flex-col justify-center items-center gap-4 lg:gap-8  lg:justify-between bg-blue-950 ">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-4 w-[85%] md:w-full">
           <RiPagesLine className="text-white text-6xl  md:text-7xl" />
-          <div className="text-white flex flex-col gap-1 w-full">
+          <div className="text-white flex flex-col gap-1 ">
             <p className=" text-lg md:text-2xl  font-semibold">
               Your Shopping Journey Starts Here
             </p>
