@@ -2,9 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleWishlistItem } from "../redux/wishlistSlice";
 import { addToCart } from "../redux/cartSlice";
-import { FaStar, FaRegStar } from "react-icons/fa";
-import { FaHeart, FaRegHeart } from "react-icons/fa";
-import { IoIosAdd } from "react-icons/io";
+import { FaStar, FaRegStar, FaHeart, FaRegHeart } from "react-icons/fa";
 import { MdAdd } from "react-icons/md";
 
 const ProductCard = ({ product }) => {
@@ -18,21 +16,11 @@ const ProductCard = ({ product }) => {
   };
 
   const handleAddToCart = () => {
-    dispatch(addToCart(product));
-  };
-
-  const renderStars = (rating) => {
-    const stars = [];
-    for (let i = 1; i <= 5; i++) {
-      stars.push(
-        i <= Math.floor(rating) ? (
-          <FaStar key={i} className="text-yellow-500" />
-        ) : (
-          <FaRegStar key={i} className="text-gray-500" />
-        )
-      );
+    if (product && product.id) {
+      dispatch(addToCart(product));
+    } else {
+      console.error("Invalid product:", product);
     }
-    return stars;
   };
 
   return (
@@ -70,10 +58,7 @@ const ProductCard = ({ product }) => {
 
       <div className="w-[20%] h-full flex flex-col justify-between items-end">
         <div className="flex flex-col justify-between items-end">
-          <div className="flex text-sm sm:text-base mb-2">
-            {renderStars(product.rating.rate)}
-          </div>
-          <p className=" text-xs sm:text-sm text-gray-500 capitalize">
+          <p className="text-xs sm:text-sm text-gray-500 capitalize">
             {product.rating.count} ratings
           </p>
         </div>
@@ -82,7 +67,7 @@ const ProductCard = ({ product }) => {
           onClick={handleAddToCart}
           className="w-[80px] sm:w-[110px] md:w-[160px] bg-blue-800 text-white px-2 md:px-4 py-3 rounded-sm hover:bg-blue-900 transition flex justify-center items-center gap-2"
         >
-          <span className="text-xs md:text-base">Add to Cart</span>{" "}
+          <span className="text-xs md:text-base">Add to Cart</span>
           <MdAdd className="hidden sm:inline" />
         </button>
       </div>

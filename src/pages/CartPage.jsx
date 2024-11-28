@@ -9,7 +9,7 @@ import { RiDeleteBinFill } from "react-icons/ri";
 
 const CartPage = () => {
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart.cart);
+  const cart = useSelector((state) => state.cart.cart || []);
 
   const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
   const totalPrice = cart.reduce(
@@ -98,5 +98,4 @@ const CartPage = () => {
     </div>
   );
 };
-
 export default CartPage;

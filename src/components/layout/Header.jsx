@@ -6,7 +6,7 @@ import { SlPeople } from "react-icons/sl";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 
 const Header = () => {
-  const cart = useSelector((state) => state.cart.cart);
+  const cart = useSelector((state) => state.cart.cart || []);
 
   // total quantity of products in cart to show on cart icon
   const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
