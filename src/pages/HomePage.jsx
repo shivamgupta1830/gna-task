@@ -119,10 +119,12 @@ const HomePage = () => {
         <div className="flex md:hidden mb-4 w-full justify-start">
           <button
             onClick={() => setShowFilters((prev) => !prev)}
-            className="flex items-center rounded-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 p-2"
+            className="flex items-center rounded-sm  font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 p-2"
           >
             <CiFilter size={20} className="mr-2" />
-            <span>{showFilters ? "Hide Filters" : "Show Filters"}</span>
+            <span className="text-xs md:text-sm">
+              {showFilters ? "Hide Filters" : "Show Filters"}
+            </span>
           </button>
         </div>
 
@@ -171,7 +173,7 @@ const HomePage = () => {
             <div className="mt-4">
               <button
                 onClick={resetFilters}
-                className="w-full text-center py-2 px-4 text-white bg-red-500 hover:bg-red-600 rounded-md font-medium text-sm md:text-base transition-all duration-300"
+                className="w-full md:w-[80%] text-center py-2 px-4 text-white bg-red-500 hover:bg-red-600 rounded-md font-medium text-sm md:text-base transition-all duration-300"
               >
                 Reset Filters
               </button>
@@ -191,13 +193,13 @@ const HomePage = () => {
 
             <label
               htmlFor="sort"
-              className="bg-gray-100 px-5 py-2 md:px-7 md:py-4 rounded-3xl relative flex items-center hover:bg-gray-200"
+              className="bg-gray-100 px-3 py-2 md:px-5 md:py-4 rounded-3xl relative flex items-center justify-center hover:bg-gray-200 "
             >
-              <BiSort className="text-blue-900 mr-2" size={20} />
+              <BiSort className="text-blue-900 mr-2" size={14} />
               <select
                 name="sort"
                 id="sort"
-                className="bg-gray-100 hover:bg-gray-200 outline-none appearance-none font-semibold text-sm md:text-base"
+                className="bg-gray-100 hover:bg-gray-200 outline-none appearance-none font-semibold text-xs md:text-sm"
                 value={sortOrder}
                 onChange={(e) => setSortOrder(e.target.value)}
               >
