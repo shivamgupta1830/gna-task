@@ -203,7 +203,7 @@ const HomePage = () => {
                 value={sortOrder}
                 onChange={(e) => setSortOrder(e.target.value)}
               >
-                <option value="">Sort</option>
+                <option value="">Price sort</option>
                 <option value="asc">Low to High</option>
                 <option value="desc">High to Low</option>
               </select>
