@@ -97,6 +97,14 @@ const HomePage = () => {
     setCurrentPage(1);
   };
 
+  const resetFilters = () => {
+    setPriceRange({ min: 0, max: 1000, current: 1000 });
+    setSelectedCategories([]);
+    setSelectedRatings([]);
+    setSearchQuery("");
+    setSortOrder("");
+  };
+
   if (loading) return <Loader />;
   if (error)
     return (
@@ -118,43 +126,60 @@ const HomePage = () => {
           </button>
         </div>
 
-        {/*Filters */}
+        {/* Filters Section */}
         <div
           className={`${
             showFilters ? "block" : "hidden"
           } md:block w-full md:w-[30%] mb-4 md:mb-0`}
         >
-          <CategoryFilter
-            products={products}
-            selectedCategories={selectedCategories}
-            onCategoryChange={(category) =>
-              setSelectedCategories((prev) =>
-                prev.includes(category)
-                  ? prev.filter((c) => c !== category)
-                  : [...prev, category]
-              )
-            }
-          />
-          <PriceFilter
-            priceRange={priceRange}
-            onPriceChange={(value) =>
-              setPriceRange((prev) => ({ ...prev, current: value }))
-            }
-          />
-          <RatingFilter
-            ratings={[1, 2, 3, 4, 5]}
-            selectedRatings={selectedRatings}
-            onRatingChange={(rating) =>
-              setSelectedRatings((prev) =>
-                prev.includes(rating)
-                  ? prev.filter((r) => r !== rating)
-                  : [...prev, rating]
-              )
-            }
-          />
+          <div className="flex flex-col">
+            {/* Category Filter */}
+            <CategoryFilter
+              products={products}
+              selectedCategories={selectedCategories}
+              onCategoryChange={(category) =>
+                setSelectedCategories((prev) =>
+                  prev.includes(category)
+                    ? prev.filter((c) => c !== category)
+                    : [...prev, category]
+                )
+              }
+            />
+
+            {/* Price Filter */}
+            <PriceFilter
+              priceRange={priceRange}
+              onPriceChange={(value) =>
+                setPriceRange((prev) => ({ ...prev, current: value }))
+              }
+            />
+
+            {/* Rating Filter */}
+            <RatingFilter
+              ratings={[1, 2, 3, 4, 5]}
+              selectedRatings={selectedRatings}
+              onRatingChange={(rating) =>
+                setSelectedRatings((prev) =>
+                  prev.includes(rating)
+                    ? prev.filter((r) => r !== rating)
+                    : [...prev, rating]
+                )
+              }
+            />
+
+            {/* Reset Button */}
+            <div className="mt-4">
+              <button
+                onClick={resetFilters}
+                className="w-full text-center py-2 px-4 text-white bg-red-500 hover:bg-red-600 rounded-md font-medium text-sm md:text-base transition-all duration-300"
+              >
+                Reset Filters
+              </button>
+            </div>
+          </div>
         </div>
 
-        {/* Products*/}
+        {/* Products Section */}
         <div className="w-full md:w-[70%] px-1">
           <div className="flex justify-between items-center border-b-2 border-gray-100 pb-5 text-blue-900">
             <p className="font-medium text-base md:text-xl text-gray-500">
@@ -166,16 +191,13 @@ const HomePage = () => {
 
             <label
               htmlFor="sort"
-              className="bg-gray-100 px-5 py-2 md:px-7 md:py-4 rounded-3xl relative hover:bg-gray-200 "
+              className="bg-gray-100 px-5 py-2 md:px-7 md:py-4 rounded-3xl relative flex items-center hover:bg-gray-200"
             >
-              <BiSort
-                className="absolute top-3 left-1   md:top-5 md:left-2 text-blue-900 "
-                size={16}
-              />
+              <BiSort className="text-blue-900 mr-2" size={20} />
               <select
                 name="sort"
                 id="sort"
-                className="bg-gray-100 hover:bg-gray-200  outline-none appearance-none font-semibold text-sm md:text-base text-center"
+                className="bg-gray-100 hover:bg-gray-200 outline-none appearance-none font-semibold text-sm md:text-base"
                 value={sortOrder}
                 onChange={(e) => setSortOrder(e.target.value)}
               >
