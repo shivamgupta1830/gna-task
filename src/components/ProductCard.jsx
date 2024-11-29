@@ -23,6 +23,32 @@ const ProductCard = ({ product }) => {
     }
   };
 
+  // Function to render stars based on rating
+  const renderStars = (rating) => {
+    const fullStars = Math.floor(rating); // Full stars
+    const emptyStars = 5 - fullStars; // Remaining stars
+    return (
+      <div className="flex items-center">
+        {Array(fullStars)
+          .fill()
+          .map((_, index) => (
+            <FaStar
+              key={index}
+              className="text-yellow-500 text-sm sm:text-base"
+            />
+          ))}
+        {Array(emptyStars)
+          .fill()
+          .map((_, index) => (
+            <FaRegStar
+              key={index}
+              className="text-gray-400 text-sm sm:text-base"
+            />
+          ))}
+      </div>
+    );
+  };
+
   return (
     <div className="rounded-sm px-4 py-5 mb-10 border-b border-b-gray-200 flex justify-start items-start gap-10 h-[250px]">
       <div className="relative w-[20%]">
@@ -58,7 +84,13 @@ const ProductCard = ({ product }) => {
 
       <div className="w-[20%] h-full flex flex-col justify-between items-end">
         <div className="flex flex-col justify-between items-end">
-          <p className="text-xs sm:text-sm text-gray-500 capitalize">
+          {/* Render the stars */}
+          <div className="flex items-center gap-2">
+            {renderStars(product.rating.rate)}
+          </div>
+
+          {/* Move the rating count to the next line */}
+          <p className="text-xs sm:text-sm text-gray-500 capitalize mt-2">
             {product.rating.count} ratings
           </p>
         </div>
@@ -67,7 +99,7 @@ const ProductCard = ({ product }) => {
           onClick={handleAddToCart}
           className="w-[80px] sm:w-[110px] md:w-[160px] bg-blue-800 text-white px-2 md:px-4 py-3 rounded-sm hover:bg-blue-900 hover:shadow-lg transition flex justify-center items-center gap-2 hover:scale-110"
         >
-          <span className="text-xs md:text-base ">Add to Cart</span>
+          <span className="text-xs md:text-base">Add to Cart</span>
           <MdAdd className="hidden sm:inline" />
         </button>
       </div>
