@@ -19,9 +19,9 @@ const CategoryFilter = ({ products, selectedCategories, onCategoryChange }) => {
               value={category}
               checked={selectedCategories.includes(category)}
               onChange={() => onCategoryChange(category)}
-              className="w-4 h-4"
+              className="w-4 h-4 "
             />
-            <span>{category}</span>
+            <span className="capitalize">{category}</span>
           </label>
         ))}
       </div>
